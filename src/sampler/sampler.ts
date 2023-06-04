@@ -33,6 +33,7 @@ export type SamplerConfig = {
 
 export type SamplerNote = {
   decayTime?: number;
+  playbackRate?: number;
   detune?: number;
   duration?: number;
   lpfCutoffHz?: number;
@@ -109,6 +110,7 @@ export class Sampler {
 
       decayTime: _note.decayTime,
       lpfCutoffHz: _note.lpfCutoffHz,
+      playbackRate: _note.playbackRate,
       detune: detune + (_note.detune ?? this.#config.detune),
       gain: this.#config.volumeToGain(_note.velocity ?? this.#config.velocity),
 

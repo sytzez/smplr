@@ -91,6 +91,7 @@ export class SfzSampler {
         buffer,
         destination,
         decayTime: _note.decayTime ?? this.#config.decayTime,
+        playbackRate: _note.playbackRate,
         detune: detune + (_note.detune ?? this.#config.detune),
         gain: midiVelToGain(_note.velocity ?? this.#config.velocity),
         time: _note.time,

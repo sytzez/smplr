@@ -22,6 +22,7 @@ export type StartSample = {
   buffer: AudioBuffer;
   decayTime?: number;
   destination: AudioNode;
+  playbackRate?: number;
   detune?: number;
   duration?: number;
   gain?: number;
@@ -49,6 +50,7 @@ export function startSample(sample: StartSample) {
   // Buffer source
   const source = context.createBufferSource();
   source.buffer = sample.buffer;
+  source.playbackRate.value = sample?.playbackRate ?? 1;
   source.detune.value = sample?.detune ?? 0;
 
   // Low pass filter
